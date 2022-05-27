@@ -6,6 +6,6 @@
 
         <bitmap
             android:gravity="center"
-            android:src="@drawable/ic_launcher_round" />
+            android:src="@drawable/logo_staysafe" />
     </item>
 </layer-list>

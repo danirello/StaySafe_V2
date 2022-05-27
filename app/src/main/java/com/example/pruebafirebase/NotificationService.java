@@ -35,7 +35,7 @@ public final class NotificationService extends FirebaseMessagingService {
         //FirebaseFirestore firestore = FirebaseFirestore.getInstance();
         //firestore.collection("DeviceTokens").document().set(tokenData);
         inicializarFirebase();
-        databaseReference.child("tokens").child(tokenData.toString()).setValue(tokenData);
+        databaseReference.child("tokens").child(s).setValue(tokenData);
     }
 
 

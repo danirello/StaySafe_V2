@@ -1,8 +1,11 @@
 package com.example.pruebafirebase;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +14,11 @@ import android.widget.ImageButton;
 import androidx.fragment.app.Fragment;
 
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.io.BufferedReader;
@@ -42,10 +48,11 @@ public class principal extends Fragment {
     ImageButton button;
     boolean cambio = false;
     String link = "https://staysafetdi.000webhostapp.com/estado.php?a=0";
-    String est;
+    int est;
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
+    DatabaseReference refeEstado;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -85,17 +92,18 @@ public class principal extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+
         View v = inflater.inflate(R.layout.fragment_principal, container, false);
         button = (ImageButton) v.findViewById(R.id.imageButton2);
 
         button.setOnClickListener(imgButtonHandler);
+
 
         if(cambio == false){
             button.setBackgroundResource(R.drawable.apagado);
@@ -112,6 +120,7 @@ public class principal extends Fragment {
         FirebaseApp.initializeApp(getContext());
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
+        refeEstado = firebaseDatabase.getReference();
     }
 
     View.OnClickListener imgButtonHandler = new View.OnClickListener() {
@@ -122,17 +131,17 @@ public class principal extends Fragment {
 
             if(cambio == false){
 
-                est = "1";
+                est = 1;
 
-                databaseReference.child("estado").child("1").child("estadoBi").setValue(est);
+                databaseReference.child("estado").child("estadoBi").setValue(est);
 
                 //Cambia la imagen del boton
                 button.setBackgroundResource(R.drawable.encendido);
                 cambio = true;
             }else{
-                est = "0";
+                est = 0;
 
-                databaseReference.child("estado").child("1").child("estadoBi").setValue(est);
+                databaseReference.child("estado").child("estadoBi").setValue(est);
 
                 //Cambia la imagen del boton
                 button.setBackgroundResource(R.drawable.apagado);
