@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Staysafe</string>
+    //-------------- ------CARGA-------------------------------------
+    <string name="texto_carga">STAY SAFE</string>
+    <string name="des_img_carga">logo</string>
+    //---------------------LOGIN-------------------------------------
+    <string name="txtv_inicioS">Iniciar sesión</string>
+    <string name="input_user">Usuario</string>
+    <string name="input_pass">Contraseña</string>
+    <string name="btn_iniciar">Iniciar</string>
+    <string name="hola">Hola</string>
+    <string name="img_descripcion">ImageDescripcion</string>
+    <string name="text">Encendido</string>
+    <string name="text_config">Configuración</string>
+    <string name="text_1">Recordar usuario y contraseña</string>
+    <string name="text_2">Activar notificaciones</string>
+    <string name="text_3">Registrate</string>
+    <string name="text_4">Ayuda</string>
+    <string name="text_5">Soporte</string>
+    <string name="text_6">Acerca de la version 1.0</string>
+    //----------------------CONFIGURACIONES----------------------------
+    <string name="titulo_config">Configuraciones</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    //-----------------------REGISTRO----------------------------------
+    <string name="titulo_regis">Registro</string>
+    <string name="titulo_correo">Correo</string>
+    <string name="titulo_boton">Registrar</string>
+</resources>
